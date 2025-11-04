@@ -1,4 +1,3 @@
-````markdown
 # OpenCloud (Heinlein) Unraid Template
 
 This is a modular Unraid CA template for [OpenCloud](https://opencloud.eu/en) by Heinlein Gruppe. It is designed for users who, like Unraid users, prefer to manage services in separate, external containers.
