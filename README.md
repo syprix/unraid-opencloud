@@ -1,6 +1,3 @@
-Kompletter Code für README.md (Korrigiert)
-Markdown
-
 # OpenCloud (Heinlein) Unraid Template
 
 This is a modular Unraid CA template for [OpenCloud](https://opencloud.eu/en) by Heinlein Gruppe. It is designed for users who, like Unraid users, prefer to manage services in separate, external containers.
@@ -20,9 +17,12 @@ You must manually create your configuration and data folders and give them open 
 Open the Unraid Terminal and run the following commands. **Remember to edit the paths** to match your Unraid setup.
 
 First, create your config and data folders:
+
 ```bash
 mkdir -p [YOUR_CONFIG_PATH]
 mkdir -p [YOUR_DATA_PATH]
+```
+
 Next, set permissions to avoid errors (this allows the container's internal user to write to the folders):
 
 Bash
