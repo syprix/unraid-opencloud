@@ -59,21 +59,24 @@ Your commands in the terminal would be:
 
 Step 1: Create folders and set permissions
 
-Bash
+```Bash
 
 mkdir -p /mnt/user/appdata/opencloud-config
 mkdir -p /mnt/user/OpenCloud/
 chmod -R 777 /mnt/user/appdata/opencloud-config
 chmod -R 777 /mnt/user/OpenCloud/
+```
 Step 2: Run init command
 
-Bash
+```Bash
 
 docker run --rm -it \
  -v /mnt/user/appdata/opencloud-config:/etc/opencloud \
  -v /mnt/user/OpenCloud/:/var/lib/opencloud \
  -e IDM_ADMIN_PASSWORD='Super!Secure123' \
  opencloudeu/opencloud-rolling:latest init
+```
+
 Only after this command runs successfully can you proceed to install and start the container via the CA template.
 
 Template Configuration Notes
