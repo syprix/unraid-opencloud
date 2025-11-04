@@ -1,3 +1,6 @@
+Kompletter Code für README.md (Korrigiert)
+Markdown
+
 # OpenCloud (Heinlein) Unraid Template
 
 This is a modular Unraid CA template for [OpenCloud](https://opencloud.eu/en) by Heinlein Gruppe. It is designed for users who, like Unraid users, prefer to manage services in separate, external containers.
@@ -16,22 +19,22 @@ You must manually create your configuration and data folders and give them open 
 
 Open the Unraid Terminal and run the following commands. **Remember to edit the paths** to match your Unraid setup.
 
+First, create your config and data folders:
 ```bash
-# Create your config and data folders
 mkdir -p [YOUR_CONFIG_PATH]
 mkdir -p [YOUR_DATA_PATH]
+Next, set permissions to avoid errors (this allows the container's internal user to write to the folders):
 
-# Set permissions to avoid errors
+Bash
+
 chmod -R 777 [YOUR_CONFIG_PATH]
 chmod -R 777 [YOUR_DATA_PATH]
-`
-
-### Step 2: Run the Init Command
+Step 2: Run the Init Command
 Now, run the init command. This will populate your config folder.
 
 Note: If your password contains special characters like !, wrap it in single quotes (' ') to prevent a terminal error.
 
-``Bash
+Bash
 
 docker run --rm -it \
  -v [YOUR_CONFIG_PATH]:/etc/opencloud \
@@ -41,6 +44,8 @@ docker run --rm -it \
 When asked ...certificate checking disabled?, type yes and press Enter.
 
 Full Example:
+Here is a full example if your paths are:
+
 Config Path: /mnt/user/appdata/opencloud-config
 
 Data Share: /mnt/user/OpenCloud
@@ -49,15 +54,18 @@ Password: Super!Secure123
 
 Your commands in the terminal would be:
 
+Step 1: Create folders and set permissions
+
 Bash
 
-# Step 1: Create folders and set permissions
 mkdir -p /mnt/user/appdata/opencloud-config
 mkdir -p /mnt/user/OpenCloud/
 chmod -R 777 /mnt/user/appdata/opencloud-config
 chmod -R 777 /mnt/user/OpenCloud/
+Step 2: Run init command
 
-# Step 2: Run init command
+Bash
+
 docker run --rm -it \
  -v /mnt/user/appdata/opencloud-config:/etc/opencloud \
  -v /mnt/user/OpenCloud/:/var/lib/opencloud \
