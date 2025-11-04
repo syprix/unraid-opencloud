@@ -16,7 +16,7 @@ OpenCloud requires a manual `init` command to be run **BEFORE** you start the co
 docker run --rm -it \
  -v [YOUR_CONFIG_PATH]:/etc/opencloud \
  -v [YOUR_DATA_PATH]:/var/lib/opencloud \
- -e IDM_ADMIN_PASSWORD=[YOUR_SECURE_PASSWORD] \
+ -e IDM_ADMIN_PASSWORD='[YOUR_SECURE_PASSWORD]' \
  opencloudeu/opencloud-rolling:latest init
 ````
 
