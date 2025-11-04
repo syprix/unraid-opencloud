@@ -24,14 +24,14 @@ mkdir -p [YOUR_DATA_PATH]
 # Set permissions to avoid errors
 chmod -R 777 [YOUR_CONFIG_PATH]
 chmod -R 777 [YOUR_DATA_PATH]
-
+`
 
 ### Step 2: Run the Init Command
 Now, run the init command. This will populate your config folder.
 
 Note: If your password contains special characters like !, wrap it in single quotes (' ') to prevent a terminal error.
 
-Bash
+``Bash
 
 docker run --rm -it \
  -v [YOUR_CONFIG_PATH]:/etc/opencloud \
