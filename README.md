@@ -25,22 +25,25 @@ mkdir -p [YOUR_DATA_PATH]
 
 Next, set permissions to avoid errors (this allows the container's internal user to write to the folders):
 
-Bash
+```Bash
 
 chmod -R 777 [YOUR_CONFIG_PATH]
 chmod -R 777 [YOUR_DATA_PATH]
+```
 Step 2: Run the Init Command
 Now, run the init command. This will populate your config folder.
 
 Note: If your password contains special characters like !, wrap it in single quotes (' ') to prevent a terminal error.
 
-Bash
+```Bash
 
 docker run --rm -it \
  -v [YOUR_CONFIG_PATH]:/etc/opencloud \
  -v [YOUR_DATA_PATH]:/var/lib/opencloud \
  -e IDM_ADMIN_PASSWORD='[YOUR_SECURE_PASSWORD]' \
  opencloudeu/opencloud-rolling:latest init
+```
+
 When asked ...certificate checking disabled?, type yes and press Enter.
 
 Full Example:
