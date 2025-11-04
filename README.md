@@ -30,7 +30,7 @@ Next, set permissions to avoid errors (this allows the container's internal user
 chmod -R 777 [YOUR_CONFIG_PATH]
 chmod -R 777 [YOUR_DATA_PATH]
 ```
-Step 2: Run the Init Command
+### Step 2: Run the Init Command
 Now, run the init command. This will populate your config folder.
 
 Note: If your password contains special characters like !, wrap it in single quotes (' ') to prevent a terminal error.
@@ -46,7 +46,8 @@ docker run --rm -it \
 
 When asked ...certificate checking disabled?, type yes and press Enter.
 
-Full Example:
+## Full Example:
+
 Here is a full example if your paths are:
 
 Config Path: /mnt/user/appdata/opencloud-config
@@ -57,7 +58,7 @@ Password: Super!Secure123
 
 Your commands in the terminal would be:
 
-Step 1: Create folders and set permissions
+### Step 1: Create folders and set permissions
 
 ```Bash
 
@@ -66,7 +67,7 @@ mkdir -p /mnt/user/OpenCloud/
 chmod -R 777 /mnt/user/appdata/opencloud-config
 chmod -R 777 /mnt/user/OpenCloud/
 ```
-Step 2: Run init command
+### Step 2: Run init command
 
 ```Bash
 
