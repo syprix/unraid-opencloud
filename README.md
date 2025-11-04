@@ -49,6 +49,3 @@ When you install this template from the Unraid Apps tab, make sure your paths an
   * **Externe URL (Reverse Proxy):** The full public URL your Nginx/Traefik proxy uses (e.g., `https://cloud.your-domain.com`).
 
 <!-- end list -->
-
-```
-```
