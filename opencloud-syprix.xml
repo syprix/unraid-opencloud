@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <ContainerTemplate
-  Name="OpenCloud (Heinlein)"
+  Name="OpenCloud (Heinlein) - syprix"
   Author="syprix"
   Description="Modulares Template für OpenCloud (opencloud.eu) von der Heinlein Gruppe.[br][b]ERFORDERT EXTERNE DOCKER:[/b] Reverse-Proxy, Redis und OnlyOffice.[br][br][b][color=red]WICHTIG:[/color][/b] Vor dem ersten Start [b]MUSS[/b] die [b]README.md[/b] (sichtbar in CA oder auf GitHub) gelesen und der manuelle [b]INIT-BEFEHL[/b] im Unraid-Terminal ausgeführt werden!"
   Version="2025.11.04"
@@ -10,7 +10,7 @@
   Network="bridge"
   Privileged="false"
   PostArgs="server"
-  TemplateURL="https://raw.githubusercontent.com/syprix/unraid-opencloud/main/opencloud-syprix.xml"
+  TemplateURL="httpsT://raw.githubusercontent.com/syprix/unraid-opencloud/main/opencloud-syprix.xml"
   Project="https://opencloud.eu/de"
   Support="https://github.com/syprix/unraid-opencloud/blob/main/README.md">
   
