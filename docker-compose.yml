@@ -1,0 +1,26 @@
+version: '3'
+services:
+  opencloud:
+    image: opencloudeu/opencloud:latest
+    container_name: opencloud
+    environment:
+      - VIRTUAL_HOST=open.syprix.eu
+      - LETSENCRYPT_HOST=open.syprix.eu
+      - TRUSTED_PROXIES=152.53.13.146
+      - OVERWRITEHOST=open.syprix.eu
+      - OVERWRITEPROTOCOL=https
+      - MYSQL_HOST=${MYSQL_HOST}
+      - MYSQL_DATABASE=${MYSQL_DB}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - REDIS_HOST=${REDIS_HOST}
+      - ONLYOFFICE_DOCUMENT_SERVER_URL=https://only.syprix.eu
+    volumes:
+      - ./data:/var/www/html
+    networks:
+      - proxy
+    restart: unless-stopped
+
+networks:
+  proxy:
+    external: true
