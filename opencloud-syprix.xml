@@ -38,7 +38,7 @@
   </Config>
   
   <Config Name="Redis Server Host:Port" Type="Variable" Target="OC_PERSISTENT_STORE_NODES" Display="advanced" Required="false" Default="">
-    <Description>Dein externer Redis-Server (z.B. '192.168.1.10:6379').Description>
+    <Description>Dein externer Redis-Server (z.B. '192.168.1.10:6379').</Description>
   </Config>
   <Config Name="Redis Store Typ" Type="Variable" Target="OC_PERSISTENT_STORE" Display="advanced" Required="false" Default="redis-sentinel">
     <Description>Typ des Stores. 'redis-sentinel' ist der empfohlene Wert für Redis.</Description>
@@ -47,14 +47,14 @@
     <Description>Dein externer Redis-Server für Caching (kann derselbe sein wie oben).</Description>
   </Config>
   <Config Name="Redis Cache Typ" Type="Variable" Target="OC_CACHE_STORE" Display="advanced" Required="false" Default="redis-sentinel">
-  <Description>Typ des Caches. 'redis-sentinel' ist der empfohlene Wert für Redis.</Description>
+    <Description>Typ des Caches. 'redis-sentinel' ist der empfohlene Wert für Redis.</Description>
   </Config>
 
   <Config Name="Office Produkt" Type="Variable" Target="COLLABORATION_APP_PRODUCT" Display="advanced" Required="false" Default="OnlyOffice">
     <Description>Setzt das zu verwendende Office-Produkt. Auf 'OnlyOffice' lassen.</Description>
   </Config>
   <Config Name="OnlyOffice Server URL" Type="Variable" Target="COLLABORATION_APP_ADDR" Display="always" Required="false" Default="">
-    <Description>Die volle URL zu deinem externen OnlyOffice Docker (z.B. 'http://192.1.11:8080').</Description>
+    <Description>Die volle URL zu deinem externen OnlyOffice Docker (z.B. 'http://192.168.1.11:8080').</Description>
   </Config>
   <Config Name="OnlyOffice (Insecure)" Type="Variable" Target="COLLABORATION_APP_INSECURE" Display="advanced" Required="false" Default="true">
     <Description>Auf 'true' setzen, wenn dein OnlyOffice-Server über http im LAN erreichbar ist.</Description>
