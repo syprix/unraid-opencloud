@@ -1,62 +1,34 @@
 <?xml version="1.0"?>
-<ContainerTemplate
-  Name="OpenCloud (Heinlein) - syprix"
-  Author="syprix"
-  Description="Modulares Template für OpenCloud (opencloud.eu) von der Heinlein Gruppe.[br][b]ERFORDERT EXTERNE DOCKER:[/b] Reverse-Proxy, Redis und OnlyOffice.[br][br][b][color=red]WICHTIG:[/color][/b] Vor dem ersten Start [b]MUSS[/b] die [b]README.md[/b] (sichtbar in CA oder auf GitHub) gelesen und der manuelle [b]INIT-BEFEHL[/b] im Unraid-Terminal ausgeführt werden!"
-  Version="2025.11.04"
-  Icon="https://raw.githubusercontent.com/opencloud-eu/website/main/assets/images/logo_icon.svg"
-  Repository="opencloudeu/opencloud-rolling:latest"
-  Registry="opencloudeu/opencloud-rolling"
-  Network="bridge"
-  Privileged="false"
-  PostArgs="server"
-  TemplateURL="https://raw.githubusercontent.com/syprix/unraid-opencloud/main/opencloud-syprix.xml"
-  Project="https://opencloud.eu/de"
-  Support="https://github.com/syprix/unraid-opencloud/blob/main/README.md">
-  
-  <Config Name="Appdata-Pfad (Config)" Target="/etc/opencloud" Type="Path" Display="always" Required="true" Default="/mnt/user/appdata/opencloud/config">
-    <Description>Pfad für die OpenCloud Konfigurationsdateien. MUSS mit dem Pfad des Init-Befehls übereinstimmen.</Description>
-  </Config>
-  <Config Name="Daten-Pfad (Data)" Target="/var/lib/opencloud" Type="Path" Display="always" Required="true" Default="/mnt/user/appdata/opencloud/data">
-    <Description>Pfad für die OpenCloud Daten (Dateien etc.). MUSS mit dem Pfad des Init-Befehls übereinstimmen.</Description>
-  </Config>
-  <Config Name="WebUI Port" Target="9200" Type="Port" Display="always" Required="true" Default="9200">
-    <Description>Interner Port von OpenCloud. Dein Reverse-Proxy (Nginx/Traefik) muss auf diesen Port auf deinem Unraid-Server zeigen.</Description>
-  </Config>
-  
-  <Config Name="Admin Passwort (nur für Init)" Target="IDM_ADMIN_PASSWORD" Type="Password" Display="advanced" Required="false" Default="">
-    <Description>WICHTIG: Dieses Passwort wird NUR während des manuellen 'init'-Befehls im Terminal verwendet. Siehe README.md!</Description>
-  </Config>
-  <Config Name="Externe URL (Reverse Proxy)" Type="Variable" Target="OC_URL" Display="always" Required="true" Default="https://cloud.deine-domain.de">
-    <Description>Die vollständige, externe URL, unter der OpenCloud erreichbar sein wird (z.B. über deinen Nginx VPS).</Description>
-  </Config>
-  <Config Name="Interne Bind-Adresse" Type="Variable" Target="PROXY_HTTP_ADDR" Display="advanced" Required="true" Default="0.0.0.0:9200">
-    <Description>Interne Adresse, an die sich der Container bindet.</Description>
-  </Config>
-  <Config Name="Insecure Mode (für Reverse Proxy)" Type="Variable" Target="OC_INSECURE" Display="advanced" Required="true" Default="true">
-    <Description>Auf 'true' setzen, wenn dein Reverse-Proxy (Nginx) das TLS-Handling übernimmt und die Verbindung Unraid <-> Nginx http ist.</Description>
-  </Config>
-  
-  <Config Name="Redis Server Host:Port" Type="Variable" Target="OC_PERSISTENT_STORE_NODES" Display="advanced" Required="false" Default="">
-    <Description>Dein externer Redis-Server (z.B. '192.168.1.10:6379').</Description>
-  </Config>
-  <Config Name="Redis Store Typ" Type="Variable" Target="OC_PERSISTENT_STORE" Display="advanced" Required="false" Default="redis-sentinel">
-    <Description>Typ des Stores. 'redis-sentinel' ist der empfohlene Wert für Redis.</Description>
-  </Config>
-  <Config Name="Redis Cache Host:Port" Type="Variable" Target="OC_CACHE_STORE_NODES" Display="advanced" Required="false" Default="">
-    <Description>Dein externer Redis-Server für Caching (kann derselbe sein wie oben).</Description>
-  </Config>
-  <Config Name="Redis Cache Typ" Type="Variable" Target="OC_CACHE_STORE" Display="advanced" Required="false" Default="redis-sentinel">
-    <Description>Typ des Caches. 'redis-sentinel' ist der empfohlene Wert für Redis.</Description>
-  </Config>
+<Container version="2">
+  <Name>OpenCloud (Heinlein) - syprix</Name>
+  <Repository>opencloudeu/opencloud-rolling:latest</Repository>
+  <Registry>https://hub.docker.com/r/opencloudeu/opencloud-rolling</Registry>
+  <Network>bridge</Network>
+  <Privileged>false</Privileged>
+  <PostArgs>server</PostArgs>
+  <Icon>https://raw.githubusercontent.com/opencloud-eu/website/main/assets/images/logo_icon.svg</Icon>
+  <Project>https://opencloud.eu/de</Project>
+  <Support>https://github.com/syprix/unraid-opencloud/blob/main/README.md</Support>
+  <Overview>Modulares Template für OpenCloud. Externe Services: Reverse Proxy, Redis, OnlyOffice. Vor Erststart README befolgen und init ausführen.</Overview>
+  <WebUI>http://[IP]:[PORT:9200]/</WebUI>
 
-  <Config Name="Office Produkt" Type="Variable" Target="COLLABORATION_APP_PRODUCT" Display="advanced" Required="false" Default="OnlyOffice">
-    <Description>Setzt das zu verwendende Office-Produkt. Auf 'OnlyOffice' lassen.</Description>
-  </Config>
-  <Config Name="OnlyOffice Server URL" Type="Variable" Target="COLLABORATION_APP_ADDR" Display="always" Required="false" Default="">
-    <Description>Die volle URL zu deinem externen OnlyOffice Docker (z.B. 'http://192.168.1.11:8080').</Description>
-  </Config>
-  <Config Name="OnlyOffice (Insecure)" Type="Variable" Target="COLLABORATION_APP_INSECURE" Display="advanced" Required="false" Default="true">
-    <Description>Auf 'true' setzen, wenn dein OnlyOffice-Server über http im LAN erreichbar ist.</Description>
-  </Config>
-</ContainerTemplate>
+  <Config Name="Appdata-Pfad (Config)" Target="/etc/opencloud" Default="/mnt/user/appdata/opencloud/config" Mode="rw" Description="Pfad für OpenCloud-Konfig. Muss zum init passen." Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Daten-Pfad (Data)" Target="/var/lib/opencloud" Default="/mnt/user/appdata/opencloud/data" Mode="rw" Description="Pfad für OpenCloud-Daten. Muss zum init passen." Type="Path" Display="always" Required="true" Mask="false"></Config>
+
+  <Config Name="WebUI Port" Target="9200" Default="9200" Mode="tcp" Description="Interner Port von OpenCloud (Reverse Proxy zeigt hierauf)." Type="Port" Display="always" Required="true" Mask="false"></Config>
+
+  <Config Name="Externe URL (Reverse Proxy)" Type="Variable" Target="OC_URL" Default="https://cloud.deine-domain.de" Description="Öffentliche URL hinter dem Proxy." Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Interne Bind-Adresse" Type="Variable" Target="PROXY_HTTP_ADDR" Default="0.0.0.0:9200" Description="Interne Bind-Adresse." Display="advanced" Required="true" Mask="false"></Config>
+  <Config Name="Insecure Mode (für Reverse Proxy)" Type="Variable" Target="OC_INSECURE" Default="true" Description="true, wenn TLS am Proxy endet (Unraid &lt;-&gt; Proxy = http)." Display="advanced" Required="true" Mask="false"></Config>
+
+  <Config Name="Redis Server Host:Port" Type="Variable" Target="OC_PERSISTENT_STORE_NODES" Default="" Description="z.B. 192.168.1.10:6379" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="Redis Store Typ" Type="Variable" Target="OC_PERSISTENT_STORE" Default="redis-sentinel" Description="Empfohlen: redis-sentinel" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="Redis Cache Host:Port" Type="Variable" Target="OC_CACHE_STORE_NODES" Default="" Description="Optional separater Cache-Redis" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="Redis Cache Typ" Type="Variable" Target="OC_CACHE_STORE" Default="redis-sentinel" Description="Empfohlen: redis-sentinel" Display="advanced" Required="false" Mask="false"></Config>
+
+  <Config Name="Office Produkt" Type="Variable" Target="COLLABORATION_APP_PRODUCT" Default="OnlyOffice" Description="Auf 'OnlyOffice' lassen." Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="OnlyOffice Server URL" Type="Variable" Target="COLLABORATION_APP_ADDR" Default="" Description="z.B. http://192.168.1.11:8080" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="OnlyOffice (Insecure)" Type="Variable" Target="COLLABORATION_APP_INSECURE" Default="true" Description="true, wenn OnlyOffice im LAN via http erreichbar ist." Display="advanced" Required="false" Mask="false"></Config>
+
+  <Config Name="Admin Passwort (nur für Init)" Type="Variable" Target="IDM_ADMIN_PASSWORD" Default="" Description="Nur beim manuellen 'init' im Terminal verwendet (README)." Display="advanced" Required="false" Mask="true"></Config>
+</Container>
