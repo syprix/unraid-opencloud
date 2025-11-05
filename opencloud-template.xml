@@ -6,11 +6,13 @@
   Version="2025.11.04"
   Icon="https://raw.githubusercontent.com/opencloud-eu/website/main/assets/images/logo_icon.svg"
   Repository="opencloudeu/opencloud-rolling:latest"
-  Registry="https://hub.docker.com/r/opencloudeu/opencloud-rolling"
+  Registry="opencloudeu/opencloud-rolling"
   Network="bridge"
   Privileged="false"
   PostArgs="server"
-  TemplateURL="https://raw.githubusercontent.com/syprix/unraid-opencloud/main/opencloud-template.xml">
+  TemplateURL="https://raw.githubusercontent.com/syprix/unraid-opencloud/main/opencloud-template.xml"
+  Project="https://opencloud.eu/de"
+  Support="https://github.com/syprix/unraid-opencloud/blob/main/README.md">
   
   <Config Name="Appdata-Pfad (Config)" Target="/etc/opencloud" Type="Path" Display="always" Required="true" Default="/mnt/user/appdata/opencloud/config">
     <Description>Pfad für die OpenCloud Konfigurationsdateien. MUSS mit dem Pfad des Init-Befehls übereinstimmen.</Description>
