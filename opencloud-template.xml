@@ -35,16 +35,16 @@
     <Description>Auf 'true' setzen, wenn dein Reverse-Proxy (Nginx) das TLS-Handling übernimmt und die Verbindung Unraid <-> Nginx http ist.</Description>
   </Config>
   
-  <Config Name="Redis Server Host:Port" Type="Variable" Target="OC_PERSISTENT_STORE_NODES" Display="always-hide" Required="false" Default="">
+  <Config Name="Redis Server Host:Port" Type="Variable" Target="OC_PERSISTENT_STORE_NODES" Display="advanced" Required="false" Default="">
     <Description>Dein externer Redis-Server (z.B. '192.168.1.10:6379').</Description>
   </Config>
-  <Config Name="Redis Store Typ" Type="Variable" Target="OC_PERSISTENT_STORE" Display="always-hide" Required="false" Default="redis-sentinel">
+  <Config Name="Redis Store Typ" Type="Variable" Target="OC_PERSISTENT_STORE" Display="advanced" Required="false" Default="redis-sentinel">
     <Description>Typ des Stores. 'redis-sentinel' ist der empfohlene Wert für Redis.</Description>
   </Config>
-  <Config Name="Redis Cache Host:Port" Type="Variable" Target="OC_CACHE_STORE_NODES" Display="always-hide" Required="false" Default="">
+  <Config Name="Redis Cache Host:Port" Type="Variable" Target="OC_CACHE_STORE_NODES" Display="advanced" Required="false" Default="">
     <Description>Dein externer Redis-Server für Caching (kann derselbe sein wie oben).</Description>
   </Config>
-  <Config Name="Redis Cache Typ" Type="Variable" Target="OC_CACHE_STORE" Display="always-hide" Required="false" Default="redis-sentinel">
+  <Config Name="Redis Cache Typ" Type="Variable" Target="OC_CACHE_STORE" Display="advanced" Required="false" Default="redis-sentinel">
     <Description>Typ des Caches. 'redis-sentinel' ist der empfohlene Wert für Redis.</Description>
   </Config>
 
