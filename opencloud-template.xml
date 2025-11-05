@@ -10,7 +10,7 @@
   Network="bridge"
   Privileged="false"
   PostArgs="server"
-  TemplateURL="https://github.com/syprix/unraid-opencloud/blob/main/opencloud-template.xml">
+  TemplateURL="https://raw.githubusercontent.com/syprix/unraid-opencloud/main/opencloud-template.xml">
   
   <Config Name="Appdata-Pfad (Config)" Target="/etc/opencloud" Type="Path" Display="always" Required="true" Default="/mnt/user/appdata/opencloud/config">
     <Description>Pfad für die OpenCloud Konfigurationsdateien. MUSS mit dem Pfad des Init-Befehls übereinstimmen.</Description>
@@ -22,7 +22,7 @@
     <Description>Interner Port von OpenCloud. Dein Reverse-Proxy (Nginx/Traefik) muss auf diesen Port auf deinem Unraid-Server zeigen.</Description>
   </Config>
   
-  <Config Name="Admin Passwort (nur für Init)" Type="Variable" Target="IDM_ADMIN_PASSWORD" Display="advanced" Required="false" Default="admin">
+  <Config Name="Admin Passwort (nur für Init)" Target="IDM_ADMIN_PASSWORD" Type="Password" Display="advanced" Required="false" Default="">
     <Description>WICHTIG: Dieses Passwort wird NUR während des manuellen 'init'-Befehls im Terminal verwendet. Siehe README.md!</Description>
   </Config>
   <Config Name="Externe URL (Reverse Proxy)" Type="Variable" Target="OC_URL" Display="always" Required="true" Default="https://cloud.deine-domain.de">
