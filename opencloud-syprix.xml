@@ -10,7 +10,7 @@
   Network="bridge"
   Privileged="false"
   PostArgs="server"
-  TemplateURL="https://raw.githubusercontent.com/syprix/unraid-opencloud/main/opencloud-template.xml"
+  TemplateURL="https://raw.githubusercontent.com/syprix/unraid-opencloud/main/opencloud-syprix.xml"
   Project="https://opencloud.eu/de"
   Support="https://github.com/syprix/unraid-opencloud/blob/main/README.md">
   
